@@ -23,8 +23,9 @@
     "turbo": "^2.4.4",
     "typescript": "catalog:"
   },
-  "packageManager": "pnpm@9.0.0",
+  "packageManager": "pnpm@8.15.1",
   "engines": {
     "node": ">=18"
-  }
+  },
+  "prettier": "@resume/prettier-config"
 }
