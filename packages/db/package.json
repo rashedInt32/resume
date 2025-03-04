@@ -12,7 +12,14 @@
     "@resume/eslint-config": "workspace:*",
     "@resume/tsconfig": "workspace:*",
     "@types/node": "^22.13.9",
+    "drizzle-kit": "^0.30.5",
     "eslint": "catalog:",
+    "tsx": "^4.19.3",
     "typescript": "catalog:"
+  },
+  "dependencies": {
+    "@neondatabase/serverless": "^0.10.4",
+    "dotenv": "^16.4.7",
+    "drizzle-orm": "^0.40.0"
   }
 }
