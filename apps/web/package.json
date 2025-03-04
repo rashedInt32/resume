@@ -22,7 +22,7 @@
     "@types/node": "^22.13.9",
     "@types/react": "catalog:react19",
     "@types/react-dom": "catalog:react19",
-    "eslint": "catalog",
-    "typescript": "catalog"
+    "eslint": "catalog:",
+    "typescript": "catalog:"
   }
 }
