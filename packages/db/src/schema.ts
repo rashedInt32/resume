@@ -4,16 +4,20 @@ export const usersTable = pgTable('users', {
   id: integer().primaryKey().generatedAlwaysAsIdentity(),
   username: varchar({ length: 255 }).notNull(),
   email: varchar({ length: 255 }).unique(),
-  password: varchar({ length: 255 }).notNull()
+  password: varchar({ length: 255 }).notNull(),
+  resumeId: integer('resume_id')
 });
 
 export const StylesTable = pgTable('styles', {
   body: json().$type<Body>(),
   title: json().$type<Title>(),
-  
+  photo: json().$type<Photo>(),
+  text: json().$type<Text>(),
+  textMudate: json().$type<TextMuted>(),
+  subTitle: json().$type<SubTitle>(),
+  link: json().$type<Link>(),
+  resumeId: integer('resume_id')
 })
-
-
 
 interface FontSize  {
   fontSize: number
@@ -48,4 +52,10 @@ interface SubTitle extends FontSize{
 }
 
 interface Link extends FontSize {}
+
+interface Photo {
+  width: number
+  height: number
+  borderRadius: number
+}
 
