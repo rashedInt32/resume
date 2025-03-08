@@ -36,6 +36,9 @@ importers:
 
   .:
     devDependencies:
+      '@resume/prettier-config':
+        specifier: workspace:*
+        version: link:tooling/prettier
       prettier:
         specifier: 'catalog:'
         version: 3.5.3
@@ -209,6 +212,9 @@ importers:
       '@resume/tsconfig':
         specifier: workspace:*
         version: link:../typescript
+      '@types/node':
+        specifier: ^22.13.9
+        version: 22.13.9
       typescript:
         specifier: 'catalog:'
         version: 5.8.2
