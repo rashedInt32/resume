@@ -1,3 +1,4 @@
+import { relations } from "drizzle-orm";
 import {
   integer,
   json,
@@ -15,7 +16,7 @@ export const usersTable = pgTable("users", {
   resumeId: integer("resume_id"),
 });
 
-export const StylesTable = pgTable("styles", {
+export const stylesTable = pgTable("styles", {
   id: serial("style_id").primaryKey(),
   body: json().$type<Body>(),
   title: json().$type<Title>(),
@@ -27,7 +28,7 @@ export const StylesTable = pgTable("styles", {
   resumeId: integer("resume_id"),
 });
 
-export const ResumeTable = pgTable("resume", {
+export const resumeTable = pgTable("resume", {
   id: serial("resume_id").primaryKey(),
   name: varchar({ length: 255 }).notNull(),
   role: varchar({ length: 255 }).notNull(),
@@ -40,6 +41,20 @@ export const ResumeTable = pgTable("resume", {
   skills: json().$type<Skills[]>(),
   contact: json().$type<Contact>(),
 });
+
+export const userRelations = relations(usersTable, ({ one }) => ({
+  user: one(resumeTable, {
+    fields: [usersTable.resumeId],
+    references: [resumeTable.id],
+  }),
+}));
+
+export const resumeRelations = relations(stylesTable, ({ one }) => ({
+  style: one(resumeTable, {
+    fields: [stylesTable.resumeId],
+    references: [resumeTable.id],
+  }),
+}));
 
 interface Contact {
   phone: string;
