@@ -8,6 +8,21 @@ import {
   varchar,
 } from "drizzle-orm/pg-core";
 
+import {
+  Body,
+  Contact,
+  Education,
+  Experience,
+  Link,
+  Photo,
+  Project,
+  Skills,
+  Social,
+  SubTitle,
+  TextMuted,
+  Title,
+} from "./jsonTypes";
+
 export const usersTable = pgTable("users", {
   id: serial("id").primaryKey(),
   username: varchar({ length: 255 }).notNull(),
@@ -55,74 +70,3 @@ export const resumeRelations = relations(stylesTable, ({ one }) => ({
     references: [resumeTable.id],
   }),
 }));
-
-interface Contact {
-  phone: string;
-  email: string;
-  address: string;
-}
-
-interface Skills {
-  name: string;
-}
-
-interface Project {
-  url: string;
-}
-
-interface Social {
-  name: string;
-  url: string;
-}
-
-interface Experience {
-  role: string;
-  company: string;
-  year: string;
-  desc: string;
-}
-
-interface Education {
-  university: string;
-  year: string;
-  degree: string;
-}
-
-interface FontSize {
-  fontSize: number;
-  lineHeight: number;
-  color: string;
-}
-
-interface FontFamily {
-  fontFamily: string;
-}
-
-interface Body extends FontFamily {
-  background: string;
-}
-
-interface Title extends FontSize, FontFamily {
-  textTransform: string;
-  letterSpacing: number;
-  [key: string]: any;
-}
-
-interface Text extends FontSize {
-  lineHeight: number;
-  fontSize: number;
-}
-
-interface TextMuted extends FontSize {}
-
-interface SubTitle extends FontSize {
-  textTransform: string;
-}
-
-interface Link extends FontSize {}
-
-interface Photo {
-  width: number;
-  height: number;
-  borderRadius: number;
-}
