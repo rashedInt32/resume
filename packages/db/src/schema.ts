@@ -70,3 +70,12 @@ export const resumeRelations = relations(stylesTable, ({ one }) => ({
     references: [resumeTable.id],
   }),
 }));
+
+export type User = typeof usersTable.$inferSelect;
+export type NewUser = typeof usersTable.$inferInsert;
+
+export type Styles = typeof stylesTable.$inferSelect;
+export type NewStyle = typeof stylesTable.$inferInsert;
+
+export type Resume = typeof resumeTable.$inferSelect;
+export type NewResume = typeof resumeTable.$inferInsert;
