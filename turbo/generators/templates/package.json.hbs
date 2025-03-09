@@ -1,0 +1,25 @@
+{
+"name": "@resume/{{name}}",
+"version": "0.0.0",
+"private": true,
+"exports": {
+  ".": {
+    "types": "./dist/index.d.ts",
+    "default": "./src/index.ts"
+  }
+},
+"scripts": {
+  "dev": "tsc",
+  "build": "tsc",
+  "lint": "echo 'Add lint script here'"
+},
+"devDependencies": {
+  "@resume/eslint-config": "workspace:*",
+  "@resume/tsconfig": "workspace:*",
+  "@types/node": "^22.13.9",
+  "eslint": "catalog:",
+  "tsx": "^4.19.3",
+  "typescript": "catalog:"
+},
+"dependencies": {}
+}
