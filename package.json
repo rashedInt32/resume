@@ -20,9 +20,9 @@
   },
   "devDependencies": {
     "@resume/prettier-config": "workspace:*",
+    "@turbo/gen": "^2.4.4",
     "prettier": "catalog:",
     "turbo": "^2.4.4",
-    "@turbo/gen": "^2.4.4",
     "typescript": "catalog:"
   },
   "packageManager": "pnpm@10.5.2",
