@@ -1,5 +1,6 @@
 import { relations } from "drizzle-orm";
 import {
+  date,
   integer,
   json,
   pgTable,
@@ -29,6 +30,7 @@ export const usersTable = pgTable("users", {
   email: varchar({ length: 255 }).unique(),
   password: varchar({ length: 255 }).notNull(),
   resumeId: integer("resume_id"),
+  createdAt: date("created_at").defaultNow(),
 });
 
 export const stylesTable = pgTable("styles", {
