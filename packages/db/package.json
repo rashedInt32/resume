@@ -18,7 +18,7 @@
   },
   "devDependencies": {
     "@resume/eslint-config": "workspace:*",
-    "@resume/tsconfig": "workspace:*",
+    "@resume/typescript-config": "workspace:*",
     "@types/node": "^22.13.9",
     "drizzle-kit": "^0.30.5",
     "eslint": "catalog:",

@@ -1,5 +1,5 @@
 {
-  "name": "@jsts-utils/eslint-config",
+  "name": "@resume/eslint-config",
   "version": "0.0.0",
   "type": "module",
   "private": true,

@@ -1,5 +1,5 @@
 {
-  "$schema": "https://json.schemastore.org/tsconfig",
+  "$schema": "https://json.schemastore.org/typescript-config",
   "extends": "./base.json",
   "compilerOptions": {
     "plugins": [{ "name": "next" }],

@@ -17,11 +17,9 @@
       "cache": false,
       "persistent": true
     },
-    "test": {
-      "outputs": []
-    },
-    "test:watch": {
-      "cache": false
-    }
+    "db:push": {
+      "cache": false,
+      "interactive": true
+      }
   }
 }
