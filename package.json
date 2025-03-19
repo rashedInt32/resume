@@ -1,33 +1,20 @@
 {
-  "name": "resume",
+  "name": "create-turbo-init",
   "private": true,
   "scripts": {
     "build": "turbo run build",
-    "clean": "git clean -xdf node_modules",
-    "clean:workspaces": "turbo run clean",
-    "db:push": "turbo -F @resume/db db:push",
-    "db:studio": "turbo -F @resume/db studio",
-    "dev": "turbo watch dev --continue",
-    "dev:next": "turbo watch dev -F @acme/nextjs...",
-    "format": "turbo run format --continue -- --cache --cache-location .cache/.prettiercache",
-    "format:fix": "turbo run format --continue -- --write --cache --cache-location .cache/.prettiercache",
-    "lint": "turbo run lint --continue -- --cache --cache-location .cache/.eslintcache",
-    "lint:fix": "turbo run lint --continue -- --fix --cache --cache-location .cache/.eslintcache",
-    "lint:ws": "pnpm dlx sherif@latest",
-    "postinstall": "pnpm lint:ws",
-    "typecheck": "turbo run typecheck",
-    "ui-add": "turbo run ui-add"
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "check-types": "turbo run check-types"
   },
   "devDependencies": {
-    "@resume/prettier-config": "workspace:*",
-    "@turbo/gen": "^2.4.4",
-    "prettier": "catalog:",
+    "prettier": "^3.5.3",
     "turbo": "^2.4.4",
-    "typescript": "catalog:"
+    "typescript": "5.8.2"
   },
   "packageManager": "pnpm@10.5.2",
   "engines": {
     "node": ">=18"
-  },
-  "prettier": "@resume/prettier-config"
+  }
 }

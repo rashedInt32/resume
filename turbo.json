@@ -17,9 +17,11 @@
       "cache": false,
       "persistent": true
     },
-    "db:push": {
-      "cache": false,
-      "interactive": true
+    "test": {
+      "outputs": []
+    },
+    "test:watch": {
+      "cache": false
     }
   }
 }
