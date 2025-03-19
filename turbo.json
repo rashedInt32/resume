@@ -20,6 +20,6 @@
     "db:push": {
       "cache": false,
       "interactive": true
-    }
+      }
   }
 }

@@ -1,12 +1,11 @@
 {
-  "extends": "@resume/tsconfig/base.json",
+  "extends": "@resume/typescript-config/nextjs.json",
   "compilerOptions": {
     "plugins": [
       {
         "name": "next"
       }
-    ],
-    "jsx": "preserve"
+    ]
   },
   "include": [
     "**/*.ts",

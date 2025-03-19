@@ -1,5 +1,5 @@
 {
-  "extends": "@resume/tsconfig/base.json",
+  "extends": "@resume/typescript-config/base.json",
   "compilerOptions": {
     "outDir": "dist"
   },

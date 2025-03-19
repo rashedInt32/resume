@@ -1,5 +1,5 @@
 {
-  "name": "resume",
+  "name": "create-turbo-init",
   "private": true,
   "scripts": {
     "build": "turbo run build",
@@ -19,15 +19,12 @@
     "ui-add": "turbo run ui-add"
   },
   "devDependencies": {
-    "@resume/prettier-config": "workspace:*",
     "@turbo/gen": "^2.4.4",
-    "prettier": "catalog:",
-    "turbo": "^2.4.4",
+  "turbo": "^2.4.4",
     "typescript": "catalog:"
   },
   "packageManager": "pnpm@10.5.2",
   "engines": {
     "node": ">=18"
-  },
-  "prettier": "@resume/prettier-config"
+  }
 }

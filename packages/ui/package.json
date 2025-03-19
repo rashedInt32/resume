@@ -12,7 +12,7 @@
   },
   "devDependencies": {
     "@resume/eslint-config": "workspace:*",
-    "@resume/tsconfig": "workspace:*",
+    "@resume/typescript-config": "workspace:*",
     "@turbo/gen": "^2.4.4",
     "@types/node": "^22.13.9",
     "@types/react": "catalog:react19",

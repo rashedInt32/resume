@@ -22,8 +22,8 @@ export default function generator(plop: PlopTypes.NodePlopAPI): void {
       },
       {
         type: "add",
-        path: "packages/{{name}}/tsconfig.json",
-        templateFile: "templates/tsconfig.ts.hbs",
+        path: "packages/{{name}}/typescript-config.json",
+        templateFile: "templates/typescript-config.ts.hbs",
       },
       {
         type: "add",

@@ -15,7 +15,7 @@
   },
   "devDependencies": {
     "@resume/eslint-config": "workspace:*",
-    "@resume/tsconfig": "workspace:*",
+    "@resume/typescript-config": "workspace:*",
     "@types/node": "^22.13.9",
     "eslint": "catalog:",
     "tsx": "^4.19.3",
