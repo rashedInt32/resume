@@ -31,6 +31,7 @@ export const usersTable = pgTable("users", {
   password: varchar({ length: 255 }).notNull(),
   resumeId: integer("resume_id"),
   createdAt: date("created_at").defaultNow(),
+  updatedAt: date("updated_at").defaultNow(),
 });
 
 export const stylesTable = pgTable("styles", {
@@ -43,6 +44,8 @@ export const stylesTable = pgTable("styles", {
   subTitle: json().$type<SubTitle>(),
   link: json().$type<Link>(),
   resumeId: integer("resume_id"),
+  createdAt: date("created_at").defaultNow(),
+  updatedAt: date("updated_at").defaultNow(),
 });
 
 export const resumeTable = pgTable("resume", {
@@ -57,6 +60,8 @@ export const resumeTable = pgTable("resume", {
   projects: json().$type<Project[]>(),
   skills: json().$type<Skills[]>(),
   contact: json().$type<Contact>(),
+  createdAt: date("created_at").defaultNow(),
+  updatedAt: date("updated_at").defaultNow(),
 });
 
 export const userRelations = relations(usersTable, ({ one }) => ({
