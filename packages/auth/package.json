@@ -17,11 +17,18 @@
     "@resume/eslint-config": "workspace:*",
     "@resume/typescript-config": "workspace:*",
     "@types/node": "^22.13.9",
+    "@types/react": "catalog:react19",
+    "@types/react-dom": "catalog:react19",
     "eslint": "catalog:",
     "tsx": "^4.19.3",
     "typescript": "catalog:"
   },
   "dependencies": {
-    "next-auth": "5.0.0-beta.25"
+    "next-auth": "5.0.0-beta.25",
+    "nextjs": "^0.0.3",
+    "react": "catalog:react19",
+    "react-dom": "catalog:react19",
+    "zod": "^3.24.2"
+    
   }
 }
