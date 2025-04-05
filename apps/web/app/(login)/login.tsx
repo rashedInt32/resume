@@ -3,12 +3,15 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { useActionState } from "react";
+import { ActionState } from "@resume/auth/middleware";
 
 export default function LoginPage({
   mode = "signin",
 }: {
   mode?: "signin" | "signup";
 }) {
+  useActionState<ActionState, FormData>(mode === "signin" ? signIn : signUp);
   return (
     <div className="flex h-screen w-full">
       {/* Left side - Illustration */}
