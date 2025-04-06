@@ -10,6 +10,10 @@
     "./middleware": {
       "types": "./dist/middleware.d.ts",
       "default": "./src/middlware.ts"
+    },
+    "./useAuth": {
+      "types": "./dist/useAuth.d.ts",
+      "default": "./src/useAuth.ts"
     }
   },
   "scripts": {
