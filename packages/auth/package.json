@@ -14,6 +14,10 @@
     "./useAuth": {
       "types": "./dist/useAuth.d.ts",
       "default": "./src/useAuth.ts"
+    },
+    "./session": {
+      "types": "./dist/session.d.ts",
+      "default": "./src/session.ts"
     }
   },
   "scripts": {
@@ -33,11 +37,12 @@
     "typescript": "catalog:"
   },
   "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "jose": "^6.0.10",
     "next-auth": "5.0.0-beta.25",
     "nextjs": "^0.0.3",
     "react": "catalog:react19",
     "react-dom": "catalog:react19",
     "zod": "^3.24.2"
-    
   }
 }

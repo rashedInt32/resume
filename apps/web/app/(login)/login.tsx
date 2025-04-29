@@ -13,9 +13,9 @@ export default function LoginPage({
 }: {
   mode?: "signin" | "signup";
 }) {
-  const [state, formAction] = useActionState<ActionState, FormData>(
+  const [state, formAction, pending] = useActionState<ActionState, FormData>(
     mode === "signin" ? signIn : signUp,
-    { error: "" }
+    { error: "" },
   );
   return (
     <div className="flex h-screen w-full">
@@ -54,6 +54,7 @@ export default function LoginPage({
                   <Label htmlFor="email">Username</Label>
                   <Input
                     id="username"
+                    name="username"
                     type="text"
                     placeholder="user name"
                     required
@@ -64,6 +65,7 @@ export default function LoginPage({
                 <Label htmlFor="email">Email</Label>
                 <Input
                   id="email"
+                  name="email"
                   type="email"
                   placeholder="name@example.com"
                   required
@@ -82,7 +84,7 @@ export default function LoginPage({
                     </Link>
                   )}
                 </div>
-                <Input id="password" type="password" required />
+                <Input id="password" name="password" type="password" required />
               </div>
             </div>
 
