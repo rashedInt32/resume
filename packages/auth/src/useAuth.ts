@@ -6,8 +6,7 @@ const signInSchema = z.object({
 });
 
 export const signIn = validatedAction(signInSchema, async (data, formData) => {
-  console.log("called sigIn");
-  console.log(data, formData);
+  const { email, password } = data;
 });
 
 export async function signUp(state: ActionState, formData: FormData) {
