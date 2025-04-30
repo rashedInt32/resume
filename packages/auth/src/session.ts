@@ -49,6 +49,7 @@ export async function setSession(user: NewUser) {
     user: { id: user.id! },
     expires: expiresInOneDay.toISOString(),
   };
+
   const encryptedSession = await signToken(session);
   (await cookies()).set("session", encryptedSession, {
     expires: expiresInOneDay,

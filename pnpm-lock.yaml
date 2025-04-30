@@ -110,6 +110,43 @@ importers:
         specifier: 'catalog:'
         version: 5.8.2
 
+  packages/api:
+    dependencies:
+      '@neondatabase/serverless':
+        specifier: ^0.10.4
+        version: 0.10.4
+      '@trpc/server':
+        specifier: ^11.1.2
+        version: 11.1.2(typescript@5.8.2)
+      dotenv:
+        specifier: ^16.4.7
+        version: 16.4.7
+      drizzle-orm:
+        specifier: ^0.40.0
+        version: 0.40.1(@neondatabase/serverless@0.10.4)(@types/pg@8.11.6)(gel@2.0.1)
+    devDependencies:
+      '@resume/eslint-config':
+        specifier: workspace:*
+        version: link:../../tooling/eslint-config
+      '@resume/typescript-config':
+        specifier: workspace:*
+        version: link:../../tooling/typescript-config
+      '@types/node':
+        specifier: ^22.13.9
+        version: 22.13.10
+      drizzle-kit:
+        specifier: ^0.30.5
+        version: 0.30.5
+      eslint:
+        specifier: 'catalog:'
+        version: 9.22.0(jiti@2.4.2)
+      tsx:
+        specifier: ^4.19.3
+        version: 4.19.3
+      typescript:
+        specifier: 'catalog:'
+        version: 5.8.2
+
   packages/auth:
     dependencies:
       bcryptjs:
@@ -124,9 +161,6 @@ importers:
       next-auth:
         specifier: 5.0.0-beta.25
         version: 5.0.0-beta.25(next@15.3.1(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(react@19.0.0)
-      nextjs:
-        specifier: ^0.0.3
-        version: 0.0.3
       react:
         specifier: catalog:react19
         version: 19.0.0
@@ -1298,6 +1332,11 @@ packages:
 
   '@tootallnate/quickjs-emscripten@0.23.0':
     resolution: {integrity: sha512-C5Mc6rdnsaJDjO3UpGW/CQTHtCKaYlScZTly4JIu97Jxo/odCiH0ITnDXSJPTOrEKk/ycSZ0AOgTmkDtkOsvIA==}
+
+  '@trpc/server@11.1.2':
+    resolution: {integrity: sha512-Oi9zWHG0ZDkbDo4sYkduoV7q4sIe6UwjrRLC91vNMYQK+PVgpbTCmK1laRwewAGu0zaayqcGDosANjceOIC3GA==}
+    peerDependencies:
+      typescript: '>=5.7.2'
 
   '@tsconfig/node10@1.0.11':
     resolution: {integrity: sha512-DcRjDCujK/kCk/cUe8Xz8ZSpm8mS3mNNpta+jGCA6USEDfktlNvm1+IuZ9eTcDbNk41BHwpHHeW+N1lKCz4zOw==}
@@ -2810,10 +2849,6 @@ packages:
       sass:
         optional: true
 
-  nextjs@0.0.3:
-    resolution: {integrity: sha512-mYbDUo4/sRAZ8TqK63PCpYnFiLg7BICG/ot9+guOrUKd4/Fo71ZmEQ41IZbH6nqbQvG7SXTBuofJXAIWfNho0w==}
-    engines: {node: '>=0.8.21'}
-
   no-case@2.3.2:
     resolution: {integrity: sha512-rmTZ9kz+f3rCvK2TD1Ue/oZlns7OGoIWP4fc3llxxRXlOkHKoWPPWJOfFYpITabSow43QJbRIoHQXtt10VldyQ==}
 
@@ -4235,6 +4270,10 @@ snapshots:
       tailwindcss: 4.0.14
 
   '@tootallnate/quickjs-emscripten@0.23.0': {}
+
+  '@trpc/server@11.1.2(typescript@5.8.2)':
+    dependencies:
+      typescript: 5.8.2
 
   '@tsconfig/node10@1.0.11': {}
 
@@ -5962,8 +6001,6 @@ snapshots:
     transitivePeerDependencies:
       - '@babel/core'
       - babel-plugin-macros
-
-  nextjs@0.0.3: {}
 
   no-case@2.3.2:
     dependencies:
