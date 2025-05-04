@@ -1,5 +1,5 @@
 {
-  "name": "@resume/api",
+  "name": "@resume/trpc",
   "version": "0.0.0",
   "private": true,
   "module": "./dist/index.d.ts",
@@ -12,23 +12,23 @@
   "scripts": {
     "dev": "tsc",
     "build": "tsc",
-    "db:push": "drizzle-kit push",
-    "db:generate": "drizzle-kit generate",
-    "db:migrate": "drizzle-kit migrate",
     "lint": "echo 'Add lint script here'"
   },
   "devDependencies": {
     "@resume/eslint-config": "workspace:*",
     "@resume/typescript-config": "workspace:*",
     "@types/node": "^22.13.9",
-    "drizzle-kit": "^0.30.5",
     "eslint": "catalog:",
     "tsx": "^4.19.3",
     "typescript": "catalog:"
   },
   "dependencies": {
     "@neondatabase/serverless": "^0.10.4",
+    "@resume/auth": "workspace:*",
+    "@trpc/server": "^11.1.2",
     "dotenv": "^16.4.7",
-    "drizzle-orm": "^0.40.0"
+    "drizzle-orm": "^0.40.0",
+    "next": "^15.3.1",
+    "superjson": "^2.2.2"
   }
 }
