@@ -222,6 +222,9 @@ importers:
       superjson:
         specifier: ^2.2.2
         version: 2.2.2
+      zod:
+        specifier: ^3.24.2
+        version: 3.24.2
     devDependencies:
       '@resume/eslint-config':
         specifier: workspace:*
