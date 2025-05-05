@@ -1,15 +1,11 @@
-import { type NextApiRequest, type NextApiResponse } from "next";
+import { cookies } from "next/headers";
 import { verifyToken } from "@resume/auth/session";
 
-export async function createContext({
-  req,
-  res,
-}: {
-  req: NextApiRequest;
-  res: NextApiResponse;
-}) {
-  const user = await verifyToken(req.headers.authorization as string);
-  return { req, res, user };
+export async function createContext() {
+  const token = (await cookies()).get("session")?.value;
+  const user = token ? await verifyToken(token) : null;
+
+  return { user };
 }
 
 export type Context = Awaited<ReturnType<typeof createContext>>;

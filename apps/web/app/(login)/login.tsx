@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label";
 import { useActionState } from "react";
 import { ActionState } from "@resume/auth/middleware";
 import { signIn, signUp } from "@resume/auth/useAuth";
+import { trpc } from "@/lib/trpc/client";
 
 export default function LoginPage({
   mode = "signin",
@@ -17,6 +18,8 @@ export default function LoginPage({
     mode === "signin" ? signIn : signUp,
     { error: "" },
   );
+  const ping = trpc.auth.ping.useQuery();
+
   return (
     <div className="flex h-screen w-full">
       {/* Left side - Illustration */}
@@ -46,6 +49,7 @@ export default function LoginPage({
                 : "Fill up the form to create your account"}
             </p>
           </div>
+          <p>ping: {ping.data}</p>
 
           <form className="space-y-6" action={formAction}>
             <div className="space-y-4">

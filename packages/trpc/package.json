@@ -37,6 +37,7 @@
   "dependencies": {
     "@neondatabase/serverless": "^0.10.4",
     "@resume/auth": "workspace:*",
+    "@resume/db": "workspace:*",
     "@trpc/server": "^11.1.2",
     "dotenv": "^16.4.7",
     "drizzle-orm": "^0.40.0",
