@@ -1,6 +1,5 @@
 import { compare, hash } from "bcryptjs";
 import { jwtVerify, SignJWT } from "jose";
-import { cookies } from "next/headers";
 import { NewUser } from "../../db/src/schema";
 
 export const key = new TextEncoder().encode("SECRET_KEY");
@@ -17,7 +16,7 @@ export async function comparePasswords(
   return compare(palainTextPassword, hashedPassword);
 }
 
-type SessionData = {
+export type SessionData = {
   user: { id: number };
   expires: string;
 };
@@ -38,7 +37,7 @@ export async function verifyToken(input: string) {
 }
 
 export async function getSession() {
-  const session = (await cookies()).get("session")?.value;
+  const session = "";
   if (!session) return null;
   return await verifyToken(session);
 }
@@ -51,10 +50,10 @@ export async function setSession(user: NewUser) {
   };
 
   const encryptedSession = await signToken(session);
-  (await cookies()).set("session", encryptedSession, {
-    expires: expiresInOneDay,
-    httpOnly: true,
-    secure: true,
-    sameSite: "lax",
-  });
+  //(await cookies()).set("session", encryptedSession, {
+  //expires: expiresInOneDay,
+  //httpOnly: true,
+  //secure: true,
+  //sameSite: "lax",
+  //});
 }

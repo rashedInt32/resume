@@ -6,6 +6,7 @@ import {
   pgTable,
   serial,
   text,
+  timestamp,
   varchar,
 } from "drizzle-orm/pg-core";
 
@@ -30,8 +31,8 @@ export const usersTable = pgTable("users", {
   email: varchar({ length: 255 }).unique(),
   password: varchar({ length: 255 }).notNull(),
   resumeId: integer("resume_id"),
-  createdAt: date("created_at").defaultNow(),
-  updatedAt: date("updated_at").defaultNow(),
+  createdAt: timestamp("created_at").defaultNow(),
+  updatedAt: timestamp("updated_at").defaultNow(),
 });
 
 export const stylesTable = pgTable("styles", {
