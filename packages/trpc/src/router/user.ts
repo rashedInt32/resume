@@ -14,8 +14,8 @@ export const userRouter = router({
         .where(
           or(
             eq(usersTable.email, input.email),
-            eq(usersTable.username, input.username),
-          ),
+            eq(usersTable.username, input.username)
+          )
         )
         .limit(1);
       if (user.length > 0) {
@@ -49,9 +49,7 @@ export const userRouter = router({
         username: z.string(),
         password: z.string(),
         email: z.string().email(),
-        createdAt: z.date().optional(),
-        updatedAt: z.date().optional(),
-      }),
+      })
     )
     .mutation(async ({ input }) => {
       const [createdUser] = await db

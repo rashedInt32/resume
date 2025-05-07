@@ -59,7 +59,6 @@ export default function LoginPage({
                     type="text"
                     placeholder="user name"
                     required
-                    defaultValue={state.username || ""}
                   />
                 </div>
               )}
@@ -71,7 +70,6 @@ export default function LoginPage({
                   type="email"
                   placeholder="name@example.com"
                   required
-                  defaultValue={state.email || ""}
                 />
               </div>
 

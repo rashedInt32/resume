@@ -2,7 +2,12 @@
 import { z } from "zod";
 import { ActionState, validatedAction } from "@resume/auth/middleware";
 import { serverTrpc } from "@/lib/trpc-client/client";
-import { comparePasswords, hashedPassword } from "@resume/auth/session";
+import {
+  comparePasswords,
+  hashedPassword,
+  setSession,
+} from "@resume/auth/session";
+import { User } from "@resume/db/schema";
 
 const signInSchema = z.object({
   email: z.string().email({ message: "Enter valid email" }),
@@ -46,6 +51,8 @@ export const signUp = validatedAction(signUpSchema, async (data, FormData) => {
     password: passwordhash,
     username,
   });
+
+  await setSession(createNewUser as User);
 
   console.log(createNewUser);
 });
