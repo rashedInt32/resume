@@ -18,6 +18,8 @@ export default function LoginPage({
     { error: "" },
   );
 
+  console.log(state);
+
   return (
     <div className="flex h-screen w-full">
       {/* Left side - Illustration */}
@@ -93,6 +95,7 @@ export default function LoginPage({
               {mode === "signin" ? "Sign in" : "Sign up"}
             </Button>
           </form>
+          <pre>{JSON.stringify(state)}</pre>
 
           <div className="text-center text-sm">
             {mode === "signin" ? (

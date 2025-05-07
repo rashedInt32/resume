@@ -9,7 +9,9 @@ CREATE TABLE "resume" (
 	"socials" json,
 	"projects" json,
 	"skills" json,
-	"contact" json
+	"contact" json,
+	"created_at" date DEFAULT now(),
+	"updated_at" date DEFAULT now()
 );
 --> statement-breakpoint
 CREATE TABLE "styles" (
@@ -21,7 +23,9 @@ CREATE TABLE "styles" (
 	"textMudate" json,
 	"subTitle" json,
 	"link" json,
-	"resume_id" integer
+	"resume_id" integer,
+	"created_at" date DEFAULT now(),
+	"updated_at" date DEFAULT now()
 );
 --> statement-breakpoint
 CREATE TABLE "users" (
@@ -30,5 +34,7 @@ CREATE TABLE "users" (
 	"email" varchar(255),
 	"password" varchar(255) NOT NULL,
 	"resume_id" integer,
+	"created_at" timestamp DEFAULT now(),
+	"updated_at" timestamp DEFAULT now(),
 	CONSTRAINT "users_email_unique" UNIQUE("email")
 );

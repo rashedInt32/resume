@@ -1,11 +1,11 @@
-import { protectedProcedure, publicProcedure } from "../index";
+import { protectedProcedure, publicProcedure } from "../trpc";
 import { router } from "../trpc";
 import { z } from "zod";
 import { db, eq } from "@resume/db";
 import { type NewUser, usersTable } from "@resume/db/schema";
 
 export const userRouter = router({
-  findUserbyEmail: protectedProcedure
+  findUserbyEmail: publicProcedure
     .input(z.object({ email: z.string() }))
     .query(async ({ input }) => {
       const user = await db
@@ -13,7 +13,13 @@ export const userRouter = router({
         .from(usersTable)
         .where(eq(usersTable.email, input.email))
         .limit(1);
-      return user ?? null;
+      if (user.length > 0) {
+        return {
+          username: user[0].username,
+          email: user[0].email,
+        };
+      }
+      return null;
     }),
 
   create: publicProcedure

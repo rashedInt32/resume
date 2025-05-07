@@ -1,4 +1,4 @@
-import { protectedProcedure, publicProcedure } from "../index";
+import { protectedProcedure, publicProcedure } from "../trpc";
 import { router } from "../trpc";
 import { z } from "zod";
 

@@ -1,4 +1,5 @@
-import { object, z } from "zod";
+"use server";
+import { z } from "zod";
 import { ActionState, validatedAction } from "@resume/auth/middleware";
 import { serverTrpc } from "@/lib/trpc-client/client";
 import { comparePasswords, hashedPassword } from "@resume/auth/session";
@@ -10,7 +11,7 @@ const signInSchema = z.object({
 
 export const signIn = validatedAction(signInSchema, async (data, formData) => {
   const { email, password } = data;
-  const existingUser = serverTrpc.user.findUserbyEmail.query({ email });
+  const existingUser = await serverTrpc.user.findUserbyEmail.query({ email });
   console.log(existingUser);
   if (!existingUser) {
     return {
@@ -19,6 +20,7 @@ export const signIn = validatedAction(signInSchema, async (data, formData) => {
       password,
     };
   }
+  console.log("check this block");
 });
 
 const signUpSchema = z.object({
@@ -39,14 +41,13 @@ function when<T, U>(
 
 export const signUp = validatedAction(signUpSchema, async (data, FormData) => {
   const { email, password, username } = data;
-  const existingUser = serverTrpc.user.findUserbyEmail.query({ email });
+  const existingUser = await serverTrpc.user.findUserbyEmail.query({ email });
 
-  if (!existingUser) {
-    throw new Error("User already exists");
+  if (existingUser !== null) {
+    return { error: "User already exists" };
   }
 
   const passwordhash = await hashedPassword(password);
-
   const createNewUser = await serverTrpc.user.create.mutate({
     email,
     password: passwordhash,
