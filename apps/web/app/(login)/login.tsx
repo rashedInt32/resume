@@ -4,7 +4,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { useActionState } from "react";
+import { useActionState, useEffect } from "react";
 import { ActionState } from "@resume/auth/middleware";
 import { signIn, signUp } from "./action";
 
@@ -17,8 +17,6 @@ export default function LoginPage({
     mode === "signin" ? signIn : signUp,
     { error: "" },
   );
-
-  console.log(state);
 
   return (
     <div className="flex h-screen w-full">
@@ -61,6 +59,7 @@ export default function LoginPage({
                     type="text"
                     placeholder="user name"
                     required
+                    defaultValue={state.username || ""}
                   />
                 </div>
               )}
@@ -72,6 +71,7 @@ export default function LoginPage({
                   type="email"
                   placeholder="name@example.com"
                   required
+                  defaultValue={state.email || ""}
                 />
               </div>
 
@@ -91,7 +91,7 @@ export default function LoginPage({
               </div>
             </div>
 
-            <Button type="submit" className="w-full">
+            <Button type="submit" className="w-full" disabled={pending}>
               {mode === "signin" ? "Sign in" : "Sign up"}
             </Button>
           </form>

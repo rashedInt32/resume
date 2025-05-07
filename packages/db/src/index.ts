@@ -1,6 +1,6 @@
-import { eq } from "drizzle-orm";
+import { eq, or } from "drizzle-orm";
 import { db } from "./drizzle";
 import * as dbTypes from "./jsonTypes";
 import * as schema from "./schema";
 
-export { db, dbTypes, schema, eq };
+export { db, dbTypes, schema, eq, or };

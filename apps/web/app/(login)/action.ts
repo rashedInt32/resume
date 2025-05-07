@@ -12,7 +12,6 @@ const signInSchema = z.object({
 export const signIn = validatedAction(signInSchema, async (data, formData) => {
   const { email, password } = data;
   const existingUser = await serverTrpc.user.findUserbyEmail.query({ email });
-  console.log(existingUser);
   if (!existingUser) {
     return {
       error: "Email not found",
@@ -29,23 +28,17 @@ const signUpSchema = z.object({
   username: z.string(),
 });
 
-function when<T, U>(
-  condition: boolean | (() => boolean),
-  onTrue: T | (() => T),
-  onFalse: U | (() => U),
-): T | U {
-  const evaluate = <V>(value: V | (() => V)): V =>
-    typeof value === "function" ? (value as () => V)() : value;
-  return evaluate(condition) ? evaluate(onTrue) : evaluate(onFalse);
-}
-
 export const signUp = validatedAction(signUpSchema, async (data, FormData) => {
   const { email, password, username } = data;
-  const existingUser = await serverTrpc.user.findUserbyEmail.query({ email });
+  const existingUser = await serverTrpc.user.findUserByFields.query({
+    email,
+    username,
+  });
 
-  if (existingUser !== null) {
-    return { error: "User already exists" };
-  }
+  if (existingUser?.email === email)
+    return { error: "Email already taken", email, username };
+  if (existingUser?.username === username)
+    return { error: "Username already taken", email, username };
 
   const passwordhash = await hashedPassword(password);
   const createNewUser = await serverTrpc.user.create.mutate({
