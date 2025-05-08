@@ -12,6 +12,7 @@
     "@radix-ui/react-label": "^2.1.2",
     "@radix-ui/react-slot": "^1.1.2",
     "@resume/auth": "workspace:*",
+    "@resume/db": "workspace:*",
     "@resume/trpc": "workspace:*",
     "@tanstack/react-query": "^5.75.2",
     "@trpc/client": "^11.1.2",

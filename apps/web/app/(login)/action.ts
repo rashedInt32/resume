@@ -8,6 +8,7 @@ import {
   setSession,
 } from "@resume/auth/session";
 import { User } from "@resume/db/schema";
+import { redirect } from "next/navigation";
 
 const signInSchema = z.object({
   email: z.string().email({ message: "Enter valid email" }),
@@ -24,7 +25,14 @@ export const signIn = validatedAction(signInSchema, async (data, formData) => {
       password,
     };
   }
-  console.log("check this block");
+
+  const isPasswordMatch = await comparePasswords(
+    password,
+    existingUser.password as string,
+  );
+  if (!isPasswordMatch) return { error: "Password not matched" };
+  await setSession(existingUser);
+  redirect("/");
 });
 
 const signUpSchema = z.object({
@@ -39,7 +47,6 @@ export const signUp = validatedAction(signUpSchema, async (data, FormData) => {
     email,
     username,
   });
-
   if (existingUser?.email === email)
     return { error: "Email already taken", email, username };
   if (existingUser?.username === username)
@@ -53,6 +60,5 @@ export const signUp = validatedAction(signUpSchema, async (data, FormData) => {
   });
 
   await setSession(createNewUser as User);
-
-  console.log(createNewUser);
+  redirect("/");
 });
