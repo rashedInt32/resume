@@ -31,7 +31,7 @@ export const signIn = validatedAction(signInSchema, async (data, formData) => {
     existingUser.password as string,
   );
   if (!isPasswordMatch) return { error: "Password not matched" };
-  await setSession(existingUser);
+  await setSession(existingUser as User);
   redirect("/");
 });
 
