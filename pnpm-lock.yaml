@@ -57,6 +57,9 @@ importers:
       '@resume/auth':
         specifier: workspace:*
         version: link:../../packages/auth
+      '@resume/db':
+        specifier: workspace:*
+        version: link:../../packages/db
       '@resume/trpc':
         specifier: workspace:*
         version: link:../../packages/trpc

@@ -15,5 +15,4 @@ export const authRouter = router({
       }),
     )
     .mutation(async ({ input }) => {}),
-  ping: publicProcedure.query(() => "pong"),
 });
