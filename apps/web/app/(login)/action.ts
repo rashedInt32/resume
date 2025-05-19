@@ -10,6 +10,11 @@ import {
 import { User } from "@resume/db/schema";
 import { redirect } from "next/navigation";
 
+export async function handleSessionAndRredirect(user: User) {
+  await setSession(user);
+  redirect("/");
+}
+
 const signInSchema = z.object({
   email: z.string().email({ message: "Enter valid email" }),
   password: z.string(),
@@ -17,22 +22,19 @@ const signInSchema = z.object({
 
 export const signIn = validatedAction(signInSchema, async (data, formData) => {
   const { email, password } = data;
-  const existingUser = await serverTrpc.user.findUserbyEmail.query({ email });
-  if (!existingUser) {
-    return {
-      error: "Email not found",
-      email,
-      password,
-    };
+
+  const user = await serverTrpc.user.findUserbyEmail.query({ email });
+
+  if (!user) {
+    return { error: "Email not found" };
   }
 
-  const isPasswordMatch = await comparePasswords(
-    password,
-    existingUser.password as string,
-  );
-  if (!isPasswordMatch) return { error: "Password not matched" };
-  await setSession(existingUser as User);
-  redirect("/");
+  const isMatch = await comparePasswords(password, user.password as string);
+  if (!isMatch) {
+    return { error: "Incorrect password" };
+  }
+
+  await handleSessionAndRredirect(user as User);
 });
 
 const signUpSchema = z.object({
@@ -47,18 +49,20 @@ export const signUp = validatedAction(signUpSchema, async (data, FormData) => {
     email,
     username,
   });
-  if (existingUser?.email === email)
-    return { error: "Email already taken", email, username };
-  if (existingUser?.username === username)
-    return { error: "Username already taken", email, username };
+  if (existingUser?.email === email) {
+    return { error: "Email already taken" };
+  }
 
-  const passwordhash = await hashedPassword(password);
-  const createNewUser = await serverTrpc.user.create.mutate({
+  if (existingUser?.username === username) {
+    return { error: "Username already taken" };
+  }
+
+  const hashed = await hashedPassword(password);
+  const newUser = await serverTrpc.user.create.mutate({
     email,
-    password: passwordhash,
+    password: hashed,
     username,
   });
 
-  await setSession(createNewUser as User);
-  redirect("/");
+  await handleSessionAndRredirect(newUser as User);
 });
