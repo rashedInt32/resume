@@ -93,8 +93,12 @@ export default function LoginPage({
               {mode === "signin" ? "Sign in" : "Sign up"}
             </Button>
           </form>
-          <pre>{JSON.stringify(state)}</pre>
 
+          {state.error && (
+            <div className="bg-rose-200/70 p-2 px-4 rounded-md text-rose-700 font-medium">
+              {state.error}
+            </div>
+          )}
           <div className="text-center text-sm">
             {mode === "signin" ? (
               <>
