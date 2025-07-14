@@ -121,43 +121,7 @@ export default function DashboardLayout() {
             </Sidebar>
 
             {/* Main Content */}
-            <main className="flex-1 overflow-y-auto p-6">
-              <div className="grid gap-6">
-                <h2 className="text-2xl font-bold">Dashboard Content</h2>
-                <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-                  {Array.from({ length: 4 }).map((_, i) => (
-                    <div
-                      key={i}
-                      className="rounded-lg border bg-card p-6 shadow-sm"
-                    >
-                      <div className="text-sm font-medium">Card {i + 1}</div>
-                      <div className="mt-2 text-2xl font-bold">$10,234</div>
-                      <div className="mt-4 h-2 w-full rounded-full bg-muted">
-                        <div className="h-full w-4/5 rounded-full bg-primary"></div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-                <div className="rounded-lg border bg-card shadow-sm">
-                  <div className="p-6">
-                    <h3 className="text-lg font-medium">Recent Activity</h3>
-                    <div className="mt-4 space-y-4">
-                      {Array.from({ length: 5 }).map((_, i) => (
-                        <div key={i} className="flex items-center gap-4">
-                          <div className="h-10 w-10 rounded-full bg-muted"></div>
-                          <div>
-                            <div className="font-medium">Activity {i + 1}</div>
-                            <div className="text-sm text-muted-foreground">
-                              2 hours ago
-                            </div>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </main>
+            <main className="flex-1 overflow-y-auto p-6"></main>
           </div>
         </div>
       </div>
