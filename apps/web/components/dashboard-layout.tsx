@@ -32,6 +32,7 @@ import {
   SidebarMenuItem,
   SidebarMenuButton,
 } from "@/components/ui/sidebar";
+import { ButtonCheck } from "@resume/ui/button";
 
 export default function DashboardLayout() {
   const [activeIcon, setActiveIcon] = useState("dashboard");
@@ -46,12 +47,16 @@ export default function DashboardLayout() {
 
   return (
     <SidebarProvider>
-      <div style={{ "--sidebar-width": "80px" } as React.CSSProperties}>
+      <div
+        style={{ "--sidebar-width": "80px" } as React.CSSProperties}
+        className="w-full"
+      >
         <div className="flex h-screen flex-col">
           {/* Header */}
-          <header className="flex h-16 items-center justify-between border-b px-4 lg:px-6">
+          <header className="flex h-16 items-center justify-between border-b px-4 lg:pl-28">
             <div className="flex items-center gap-4">
               <span className="text-xl font-bold">Dashboard</span>
+              <ButtonCheck />
             </div>
             <div className="flex items-center gap-4">
               <Button variant="outline" size="icon" className="rounded-full">

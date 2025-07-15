@@ -18,3 +18,9 @@ export const Button = ({ children, className, appName }: ButtonProps) => {
     </button>
   );
 };
+
+export const ButtonCheck = () => {
+  return (
+    <button className="ui:text-white ui:bg-rose-500">Check some code</button>
+  );
+};
