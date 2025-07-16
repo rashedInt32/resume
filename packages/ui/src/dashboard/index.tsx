@@ -14,8 +14,8 @@ import {
   UserCircle,
   Bell,
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Button } from "./ui/button";
+import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -23,7 +23,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+} from "./ui/dropdown-menu";
 import {
   Sidebar,
   SidebarContent,
@@ -31,8 +31,7 @@ import {
   SidebarMenu,
   SidebarMenuItem,
   SidebarMenuButton,
-} from "@/components/ui/sidebar";
-import { ButtonCheck } from "@resume/ui/button";
+} from "./ui/sidebar";
 
 export default function DashboardLayout() {
   const [activeIcon, setActiveIcon] = useState("dashboard");
@@ -56,7 +55,6 @@ export default function DashboardLayout() {
           <header className="flex h-16 items-center justify-between border-b px-4 lg:pl-28">
             <div className="flex items-center gap-4">
               <span className="text-xl font-bold">Dashboard</span>
-              <ButtonCheck />
             </div>
             <div className="flex items-center gap-4">
               <Button variant="outline" size="icon" className="rounded-full">

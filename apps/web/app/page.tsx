@@ -1,4 +1,4 @@
-import DashboardLayout from "@/components/dashboard-layout";
+import DashboardLayout from "@resume/ui/dashboard";
 
 export default function Home() {
   return <DashboardLayout />;
