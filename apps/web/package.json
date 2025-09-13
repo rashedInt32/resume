@@ -1,7 +1,7 @@
 {
-  "private": true,
   "name": "@resume/web",
   "version": "0.1.0",
+  "private": true,
   "scripts": {
     "build": "next build",
     "dev": "next dev --turbopack",
@@ -19,7 +19,6 @@
     "@resume/auth": "workspace:*",
     "@resume/db": "workspace:*",
     "@resume/trpc": "workspace:*",
-    "@resume/ui": "workspace:*",
     "@tanstack/react-query": "^5.75.2",
     "@trpc/client": "^11.1.2",
     "@trpc/react-query": "^11.1.2",
@@ -38,7 +37,8 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
-    "@resume/tailwind-config": "workspace:*",
+    "@resume/eslint-config": "workspace:*",
+    "@resume/typescript-config": "workspace:*",
     "@tailwindcss/postcss": "^4",
     "@types/node": "catalog:",
     "@types/react": "catalog:react19",
@@ -46,7 +46,7 @@
     "eslint": "catalog:",
     "eslint-config-next": "15.2.3",
     "postcss": "^8.5.3",
-    "tailwindcss": "^4.1.5",
+    "tailwindcss": "^4.1.11",
     "typescript": "catalog:"
   }
 }

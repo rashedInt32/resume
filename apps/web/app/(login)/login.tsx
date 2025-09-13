@@ -20,7 +20,6 @@ export default function LoginPage({
 
   return (
     <div className="flex h-screen w-full">
-      {/* Left side - Illustration */}
       <div className="hidden w-1/2 bg-primary/10 lg:block">
         <div className="flex h-full items-center justify-center">
           <Image
@@ -34,7 +33,6 @@ export default function LoginPage({
         </div>
       </div>
 
-      {/* Right side - Login Form */}
       <div className="flex w-full items-center justify-center lg:w-1/2">
         <div className="mx-auto w-full max-w-md space-y-8 px-4 md:px-8">
           <div className="space-y-2 text-center">
